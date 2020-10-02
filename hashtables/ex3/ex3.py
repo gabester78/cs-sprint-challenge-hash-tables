@@ -3,7 +3,24 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    dict = {}
+    result = []
 
+    # loop though arrays
+    for i in arrays:
+
+        # loop through each element in each array and
+        # add it to the dict if not included already
+        for j in i:
+            if j not in dict:
+                dict[j] = 0
+            else:
+                dict[j] += 1
+
+    # compare if any values in dict match last element seen and add it to the results
+    for key, value in dict.items():
+        if value == len(arrays)-1:
+            result.append(key)
     return result
 
 

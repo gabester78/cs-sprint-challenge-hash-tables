@@ -9,6 +9,30 @@ def reconstruct_trip(tickets, length):
     """
     YOUR CODE HERE
     """
-    # Your code here
+
+    dict = {}
+
+    # loop through all the tickets
+    for i in tickets:
+
+        # link source to destination
+        dict[i.source] = i.destination
+
+    route = []
+
+    # add destination of none to last ticket
+    next = dict["NONE"]
+    route.append(next)
+
+    # loop through the number of tickets
+    for i in range(0, length):
+
+        # add none to the starting point route
+        next = dict[next]
+
+        # add none to the end of route
+        route.append(next)
+        if next == "NONE":
+            break
 
     return route
